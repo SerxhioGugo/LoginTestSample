@@ -14,14 +14,20 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    - name: Select Xcode Version
+      run: |
+        ls /Applications | grep Xcode
+        sudo xcode-select -s /Applications/Xcode_16.2.app || echo "Falling back to default Xcode"
+        xcodebuild -version
+
     - name: Set Up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.2.2' # Match the version you used locally
-        bundler-cache: true   # Caches Bundler dependencies
+        ruby-version: '3.2.2'
+        bundler-cache: true
 
     - name: Install Dependencies
-      run: bundle install
+      run: bundle install --verbose
 
     - name: Run fastlane Unit Tests
-      run: bundle exec fastlane unit_tests
+      run: bundle exec fastlane unit_tests --verbose

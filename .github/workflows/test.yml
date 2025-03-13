@@ -1,0 +1,27 @@
+name: Run Unit Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set Up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2.2' # Match the version you used locally
+        bundler-cache: true   # Caches Bundler dependencies
+
+    - name: Install Dependencies
+      run: bundle install
+
+    - name: Run fastlane Unit Tests
+      run: bundle exec fastlane unit_tests

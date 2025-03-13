@@ -13,8 +13,8 @@ struct ContentView: View {
     
     var body: some View {
         SuccessView(email: viewModel.emailText) {
-            viewModel.resetLogin()  // Reset login state
-            showLogin = true        // Show login sheet
+            viewModel.resetLogin()
+            showLogin = true
         }
         .fullScreenCover(isPresented: $showLogin) {
             LoginView(viewModel: viewModel)

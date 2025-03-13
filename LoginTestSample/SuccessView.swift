@@ -23,7 +23,7 @@ struct SuccessView: View {
                 .foregroundColor(.green)
             
             Button(action: {
-                onShowLogin()  // Trigger the login screen
+                onShowLogin()
             }) {
                 Text("Show Login")
                     .frame(maxWidth: .infinity)

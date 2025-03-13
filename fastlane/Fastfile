@@ -20,7 +20,7 @@ platform :ios do
   lane :unit_tests do
     scan(
       scheme: "LoginTestSample",
-      clean: true,
+      clean: false,
       devices: ["iPhone 16"],
       code_coverage: true,
       output_types: "html"

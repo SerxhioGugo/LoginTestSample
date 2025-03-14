@@ -21,6 +21,7 @@ struct SuccessView: View {
             Text("Login Successful!")
                 .font(.title2)
                 .foregroundColor(.green)
+                .accessibilityIdentifier("successMessage")
             
             Button(action: {
                 onShowLogin()

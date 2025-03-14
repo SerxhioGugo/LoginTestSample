@@ -25,6 +25,7 @@ struct LoginView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled(true)
+                        .accessibilityIdentifier("username")
                     
                     Text("Password")
                         .font(.system(.title2))
@@ -32,6 +33,7 @@ struct LoginView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled(true)
+                        .accessibilityIdentifier("password")
                     
                     if let error = viewModel.errorMessage {
                         Text(error)
@@ -52,6 +54,7 @@ struct LoginView: View {
                             .padding(.top)
                     }
                     .disabled(viewModel.isLoading)
+                    .accessibilityIdentifier("loginButton")
                 }
                 .padding()
                 
